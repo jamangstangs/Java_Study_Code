@@ -17,31 +17,56 @@ public class MethodReferenceMain {
         inventory.add(new Apple(GREEN,100));
         inventory.add(new Apple(RED,100));
 
-        System.out.println(filterGreenApples(inventory));
-        System.out.println(filterHeavyApples(inventory));
-
+        System.out.println(filterApples(inventory, MethodReferenceMain::isGreenApple));
+        System.out.println(filterApples(inventory, MethodReferenceMain::isHeabyApple));
     }
 
-    public static List<Apple> filterGreenApples(List<Apple> inventory) {
-        List<Apple> result = new ArrayList<>();
+    // 비교 함수들을 선언한다.
+    public static boolean isGreenApple(Apple apple) {
+        return GREEN.equals(apple.getColor());
+    }
 
+    public static boolean isHeabyApple(Apple apple) {
+        return apple.getWeight() > 150;
+    }
+
+    public interface Predicate<T> {
+        boolean test(T t);
+    }
+
+
+    static List<Apple> filterApples(List<Apple> inventory,
+                                    Predicate<Apple> p) {
+        List<Apple> result = new ArrayList<>();
         for (Apple apple : inventory) {
-            if (GREEN.equals(apple.getColor())) {
+            if (p.test(apple)) {
                 result.add(apple);
             }
         }
         return result;
     }
 
-    public static List<Apple> filterHeavyApples(List<Apple> inventory) {
-        // 150 이상 필터링한다고 하자.
-        List<Apple> result = new ArrayList<>();
 
-        for (Apple apple : inventory) {
-            if (apple.getWeight() > 150 ) {
-                result.add(apple);
-            }
-        }
-        return result;
-    }
+//    public static List<Apple> filterGreenApples(List<Apple> inventory) {
+//        List<Apple> result = new ArrayList<>();
+//
+//        for (Apple apple : inventory) {
+//            if (GREEN.equals(apple.getColor())) {
+//                result.add(apple);
+//            }
+//        }
+//        return result;
+//    }
+//
+//    public static List<Apple> filterHeavyApples(List<Apple> inventory) {
+//        // 150 이상 필터링한다고 하자.
+//        List<Apple> result = new ArrayList<>();
+//
+//        for (Apple apple : inventory) {
+//            if (apple.getWeight() > 150 ) {
+//                result.add(apple);
+//            }
+//        }
+//        return result;
+//    }
 }

@@ -21,4 +21,5 @@ public class Apple {
     public Color getColor() {
         return color;
     }
+
 }
