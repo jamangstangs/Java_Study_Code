@@ -17,23 +17,9 @@ public class MethodReferenceMain {
         inventory.add(new Apple(GREEN,100));
         inventory.add(new Apple(RED,100));
 
-        System.out.println(filterApples(inventory, MethodReferenceMain::isGreenApple));
-        System.out.println(filterApples(inventory, MethodReferenceMain::isHeabyApple));
+        System.out.println(filterApples(inventory, (Apple a)-> GREEN.equals(a.getColor())));
+        System.out.println(filterApples(inventory, (Apple a) -> a.getWeight() > 150));
     }
-
-    // 비교 함수들을 선언한다.
-    public static boolean isGreenApple(Apple apple) {
-        return GREEN.equals(apple.getColor());
-    }
-
-    public static boolean isHeabyApple(Apple apple) {
-        return apple.getWeight() > 150;
-    }
-
-    public interface Predicate<T> {
-        boolean test(T t);
-    }
-
 
     static List<Apple> filterApples(List<Apple> inventory,
                                     Predicate<Apple> p) {
@@ -45,8 +31,22 @@ public class MethodReferenceMain {
         }
         return result;
     }
+    public interface Predicate<T> {
+        boolean test(T t);
+    }
+//
+    // 비교 함수들을 선언한다.
+//
+//    public static boolean isGreenApple(Apple apple) {
+//        return GREEN.equals(apple.getColor());
+//    }
+//
+//    public static boolean isHeabyApple(Apple apple) {
+//        return apple.getWeight() > 150;
+//    }
 
-
+//
+//
 //    public static List<Apple> filterGreenApples(List<Apple> inventory) {
 //        List<Apple> result = new ArrayList<>();
 //
