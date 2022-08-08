@@ -20,3 +20,4 @@ public class LambdaMain {
         r.run();
     }
 }
+제
