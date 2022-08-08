@@ -13,6 +13,9 @@ public class BehaviorParameterizationMain {
 
     }
 
+    // Anonymous Class 사용 -> 동작 파라미터화
+
+    // Interface 사용 -> 동작 파라미터화
     public static void prettyPrintApple(List<Apple> inventory, AppleFormatter appleFormatter) {
         for (Apple apple : inventory) {
             System.out.println(appleFormatter.accept(apple));
