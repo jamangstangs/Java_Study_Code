@@ -5,6 +5,7 @@ public class Apple {
     private Color color;
     private int weight;
 
+
     public int getWeight() {
         return weight;
     }
