@@ -36,5 +36,17 @@ public class streamSlicingMain {
                 .dropWhile(dish -> dish.getCalories() < 300)
                 .collect(toList());
 
+        // limit(n) 메서드 활용
+        List<Dish> dishes = specialMenu.stream()
+                .filter(dish -> dish.getCalories() > 300)
+                .limit(3)
+                .collect(toList());
+
+        // skip(n) 메서드 활용
+        List<Dish> dishes1 = specialMenu.stream()
+                .filter(dish -> dish.getCalories() > 300)
+                .skip(2)
+                .collect(toList());
+
     }
 }
