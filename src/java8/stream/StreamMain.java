@@ -5,6 +5,7 @@ import java8.stream.domain.Dish.Type;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static java8.stream.domain.Dish.Type.*;
 
@@ -22,5 +23,15 @@ public class StreamMain {
                 new Dish("prawns", false, 300, FISH),
                 new Dish("salmon", false, 450, FISH)
                 );
+
+        // 파이프라인 연산 만들기
+        List<String> threeHighCaloricDishNames =
+                menu.stream()
+                        .filter(dish -> dish.getCalories()>300)
+                        .map(Dish::getName)
+                        .limit(3)
+                        .collect(Collectors.toList());
+        System.out.println("threeHighCaloricDishNames = " + threeHighCaloricDishNames);
+
     }
 }
