@@ -5,7 +5,7 @@ import java8.stream.domain.Dish;
 import java.util.Arrays;
 import java.util.List;
 
-public class SteramFindMain {
+public class StreamFindMain {
 
     public static void main(String[] args) {
 

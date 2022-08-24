@@ -9,7 +9,7 @@ import java.util.List;
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
 
-public class streamSlicingMain {
+public class StreamSlicingMain {
 
     public static void main(String[] args) {
 
