@@ -25,10 +25,15 @@ public class streamSlicingMain {
                 .filter(dish -> dish.getCalories() < 300)
                 .collect(toList());
 
-        // takeWhile 활용하여 효율적인 슬라이싱
+        // takeWhile 활용하여 참인 지점까지만 take 슬라이싱
         List<Dish> slicedMenu1
                 = specialMenu.stream()
                 .takeWhile(dish -> dish.getCalories() < 300)
+                .collect(toList());
+        // dropWhile을 활용하여 처음으로 거짓이 나오는 지점가지 drop한다.
+        List<Dish> slicedMenu2
+                = specialMenu.stream()
+                .dropWhile(dish -> dish.getCalories() < 300)
                 .collect(toList());
 
     }
